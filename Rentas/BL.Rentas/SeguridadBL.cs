@@ -25,8 +25,8 @@ namespace BL.Rentas
                 if (usuario == usuarioDB.Nombre && contrasena == usuarioDB.Contrasena)
                 {
                     resultado.Exitoso = true;
-
                     resultado.Usuario = usuarioDB;
+
                     return resultado;
                 }
             }

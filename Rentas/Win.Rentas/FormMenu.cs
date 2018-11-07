@@ -25,7 +25,10 @@ namespace Win.Rentas
 
         public void Autorizar(Usuario usuario)
         {
-
+            clientesToolStripMenuItem.Enabled = usuario.PuedeVerClientes;
+            facturaToolStripMenuItem.Enabled = usuario.PuedeVerFacturas;
+            productosToolStripMenuItem.Enabled = usuario.PuedeVerProductos;
+            reportesToolStripMenuItem.Enabled = usuario.PuedeVerReportes;
         }
 
         private void Login()

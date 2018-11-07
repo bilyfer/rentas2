@@ -37,6 +37,7 @@ namespace Win.Rentas
             
             if (resultado.Exitoso == true)
             {
+                MenuPrincipal.Autorizar(resultado.Usuario);
                 this.Close();
             }
             else
