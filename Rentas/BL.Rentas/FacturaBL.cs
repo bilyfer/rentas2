@@ -161,7 +161,7 @@ namespace BL.Rentas
                     }
                 }
 
-                var calculoDescuento = factura.PorcentajeDescuento * subtotal;
+                var calculoDescuento = (factura.PorcentajeDescuento * subtotal) / 100;
                 factura.Subtotal = subtotal;
                 factura.Descuento = calculoDescuento;
                 factura.Impuesto = subtotal * 0.15;            
