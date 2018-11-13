@@ -193,7 +193,7 @@ namespace BL.Rentas
         public DateTime Fecha { get; set; }
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
-        public BindingList<FacturaDetalle> FacturaDetalle { get; set; }
+        public BindingList<FacturaDetalle> FacturaDetalle { get; set; }        
         public double Subtotal { get; set; }
         public int PorcentajeDescuento { get; set; }
         public double Descuento { get; set; }

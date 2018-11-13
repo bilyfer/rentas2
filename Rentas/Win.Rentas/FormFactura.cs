@@ -16,6 +16,7 @@ namespace Win.Rentas
         FacturaBL _facturaBL;
         ClientesBL _clientesBL;
         ProductosBL _productosBL;
+        DescuentosBL _decuentosBL;
 
         public FormFactura()
         {
@@ -29,6 +30,9 @@ namespace Win.Rentas
 
             _productosBL = new ProductosBL();
             listaProductosBindingSource.DataSource = _productosBL.ObtenerProductos();
+
+            _decuentosBL = new DescuentosBL();
+            listaDescuentosBindingSource.DataSource = _decuentosBL.ObtenerDescuentos();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -153,9 +157,14 @@ namespace Win.Rentas
         private void porcentajeDescuentoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var factura = (Factura)listaFacturasBindingSource.Current;
-            _facturaBL.CalcularFactura(factura);
+            if (factura != null && porcentajeDescuentoComboBox.SelectedIndex != -1)
+            {
+                var porcentaje = porcentajeDescuentoComboBox.SelectedValue;
+                factura.PorcentajeDescuento = Convert.ToInt32(porcentaje);
+                _facturaBL.CalcularFactura(factura);
 
-            listaFacturasBindingSource.ResetBindings(false);
+                listaFacturasBindingSource.ResetBindings(false);
+            }
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="ClientesBL.cs" />
     <Compile Include="Contexto.cs" />
     <Compile Include="DatosdeInicio.cs" />
+    <Compile Include="DescuentosBL.cs" />
     <Compile Include="FacturaBL.cs" />
     <Compile Include="ProductosBL.cs" />
     <Compile Include="Resultado.cs" />

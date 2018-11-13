@@ -72,6 +72,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.porcentajeDescuentoComboBox = new System.Windows.Forms.ComboBox();
+            this.listaDescuentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             activoLabel = new System.Windows.Forms.Label();
             clienteIdLabel = new System.Windows.Forms.Label();
             fechaLabel = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDescuentosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
@@ -472,13 +474,9 @@
             // porcentajeDescuentoComboBox
             // 
             this.porcentajeDescuentoComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFacturasBindingSource, "PorcentajeDescuento", true));
+            this.porcentajeDescuentoComboBox.DataSource = this.listaDescuentosBindingSource;
             this.porcentajeDescuentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.porcentajeDescuentoComboBox.FormattingEnabled = true;
-            this.porcentajeDescuentoComboBox.Items.AddRange(new object[] {
-            "0",
-            "10",
-            "15",
-            "20"});
             this.porcentajeDescuentoComboBox.Location = new System.Drawing.Point(380, 414);
             this.porcentajeDescuentoComboBox.Name = "porcentajeDescuentoComboBox";
             this.porcentajeDescuentoComboBox.Size = new System.Drawing.Size(200, 21);
@@ -489,7 +487,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 535);
+            this.ClientSize = new System.Drawing.Size(600, 551);
             this.Controls.Add(porcentajeDescuentoLabel);
             this.Controls.Add(this.porcentajeDescuentoComboBox);
             this.Controls.Add(this.label1);
@@ -521,6 +519,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDescuentosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,5 +561,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox porcentajeDescuentoComboBox;
+        private System.Windows.Forms.BindingSource listaDescuentosBindingSource;
     }
 }
