@@ -36,6 +36,7 @@
             System.Windows.Forms.Label impuestoLabel;
             System.Windows.Forms.Label subtotalLabel;
             System.Windows.Forms.Label totalLabel;
+            System.Windows.Forms.Label porcentajeDescuentoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFactura));
             this.listaFacturasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaFacturasBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -70,6 +71,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.porcentajeDescuentoComboBox = new System.Windows.Forms.ComboBox();
             activoLabel = new System.Windows.Forms.Label();
             clienteIdLabel = new System.Windows.Forms.Label();
             fechaLabel = new System.Windows.Forms.Label();
@@ -77,6 +79,7 @@
             impuestoLabel = new System.Windows.Forms.Label();
             subtotalLabel = new System.Windows.Forms.Label();
             totalLabel = new System.Windows.Forms.Label();
+            porcentajeDescuentoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaFacturasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaFacturasBindingNavigator)).BeginInit();
             this.listaFacturasBindingNavigator.SuspendLayout();
@@ -125,7 +128,7 @@
             // impuestoLabel
             // 
             impuestoLabel.AutoSize = true;
-            impuestoLabel.Location = new System.Drawing.Point(320, 409);
+            impuestoLabel.Location = new System.Drawing.Point(315, 472);
             impuestoLabel.Name = "impuestoLabel";
             impuestoLabel.Size = new System.Drawing.Size(53, 13);
             impuestoLabel.TabIndex = 9;
@@ -134,7 +137,7 @@
             // subtotalLabel
             // 
             subtotalLabel.AutoSize = true;
-            subtotalLabel.Location = new System.Drawing.Point(320, 383);
+            subtotalLabel.Location = new System.Drawing.Point(320, 391);
             subtotalLabel.Name = "subtotalLabel";
             subtotalLabel.Size = new System.Drawing.Size(49, 13);
             subtotalLabel.TabIndex = 11;
@@ -143,11 +146,20 @@
             // totalLabel
             // 
             totalLabel.AutoSize = true;
-            totalLabel.Location = new System.Drawing.Point(320, 435);
+            totalLabel.Location = new System.Drawing.Point(334, 498);
             totalLabel.Name = "totalLabel";
             totalLabel.Size = new System.Drawing.Size(34, 13);
             totalLabel.TabIndex = 13;
             totalLabel.Text = "Total:";
+            // 
+            // porcentajeDescuentoLabel
+            // 
+            porcentajeDescuentoLabel.AutoSize = true;
+            porcentajeDescuentoLabel.Location = new System.Drawing.Point(237, 417);
+            porcentajeDescuentoLabel.Name = "porcentajeDescuentoLabel";
+            porcentajeDescuentoLabel.Size = new System.Drawing.Size(131, 13);
+            porcentajeDescuentoLabel.TabIndex = 19;
+            porcentajeDescuentoLabel.Text = "Porcentaje de Descuento:";
             // 
             // listaFacturasBindingSource
             // 
@@ -188,8 +200,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorMoveFirstItem
@@ -322,7 +334,7 @@
             // impuestoTextBox
             // 
             this.impuestoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFacturasBindingSource, "Impuesto", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
-            this.impuestoTextBox.Location = new System.Drawing.Point(380, 406);
+            this.impuestoTextBox.Location = new System.Drawing.Point(380, 469);
             this.impuestoTextBox.Name = "impuestoTextBox";
             this.impuestoTextBox.ReadOnly = true;
             this.impuestoTextBox.Size = new System.Drawing.Size(200, 20);
@@ -332,7 +344,7 @@
             // subtotalTextBox
             // 
             this.subtotalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFacturasBindingSource, "Subtotal", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
-            this.subtotalTextBox.Location = new System.Drawing.Point(380, 380);
+            this.subtotalTextBox.Location = new System.Drawing.Point(380, 388);
             this.subtotalTextBox.Name = "subtotalTextBox";
             this.subtotalTextBox.ReadOnly = true;
             this.subtotalTextBox.Size = new System.Drawing.Size(200, 20);
@@ -342,7 +354,7 @@
             // totalTextBox
             // 
             this.totalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFacturasBindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
-            this.totalTextBox.Location = new System.Drawing.Point(380, 432);
+            this.totalTextBox.Location = new System.Drawing.Point(380, 495);
             this.totalTextBox.Name = "totalTextBox";
             this.totalTextBox.ReadOnly = true;
             this.totalTextBox.Size = new System.Drawing.Size(200, 20);
@@ -457,11 +469,29 @@
             this.label1.Text = "ANULADO";
             this.label1.Visible = false;
             // 
+            // porcentajeDescuentoComboBox
+            // 
+            this.porcentajeDescuentoComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFacturasBindingSource, "PorcentajeDescuento", true));
+            this.porcentajeDescuentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.porcentajeDescuentoComboBox.FormattingEnabled = true;
+            this.porcentajeDescuentoComboBox.Items.AddRange(new object[] {
+            "0",
+            "10",
+            "15",
+            "20"});
+            this.porcentajeDescuentoComboBox.Location = new System.Drawing.Point(380, 414);
+            this.porcentajeDescuentoComboBox.Name = "porcentajeDescuentoComboBox";
+            this.porcentajeDescuentoComboBox.Size = new System.Drawing.Size(200, 21);
+            this.porcentajeDescuentoComboBox.TabIndex = 20;
+            this.porcentajeDescuentoComboBox.SelectedIndexChanged += new System.EventHandler(this.porcentajeDescuentoComboBox_SelectedIndexChanged);
+            // 
             // FormFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 472);
+            this.ClientSize = new System.Drawing.Size(600, 535);
+            this.Controls.Add(porcentajeDescuentoLabel);
+            this.Controls.Add(this.porcentajeDescuentoComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -531,5 +561,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox porcentajeDescuentoComboBox;
     }
 }

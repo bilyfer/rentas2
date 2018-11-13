@@ -149,5 +149,13 @@ namespace Win.Rentas
                 label1.Visible = false;
             }
         }
+
+        private void porcentajeDescuentoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var factura = (Factura)listaFacturasBindingSource.Current;
+            _facturaBL.CalcularFactura(factura);
+
+            listaFacturasBindingSource.ResetBindings(false);
+        }
     }
 }

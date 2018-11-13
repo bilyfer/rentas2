@@ -161,8 +161,10 @@ namespace BL.Rentas
                     }
                 }
 
+                var calculoDescuento = factura.PorcentajeDescuento * subtotal;
                 factura.Subtotal = subtotal;
-                factura.Impuesto = subtotal * 0.15;
+                factura.Descuento = calculoDescuento;
+                factura.Impuesto = subtotal * 0.15;            
                 factura.Total = subtotal + factura.Impuesto;
             }
         }
@@ -193,6 +195,8 @@ namespace BL.Rentas
         public Cliente Cliente { get; set; }
         public BindingList<FacturaDetalle> FacturaDetalle { get; set; }
         public double Subtotal { get; set; }
+        public int PorcentajeDescuento { get; set; }
+        public double Descuento { get; set; }
         public double Impuesto { get; set; }
         public double Total { get; set; }
         public bool Activo { get; set; }
